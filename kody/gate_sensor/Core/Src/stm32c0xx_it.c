@@ -148,6 +148,7 @@ void EXTI0_1_IRQHandler(void)
   /* USER CODE BEGIN EXTI0_1_IRQn 0 */
 
   /* USER CODE END EXTI0_1_IRQn 0 */
+
   /* USER CODE BEGIN EXTI0_1_IRQn 1 */
 	// !!! DELETE LINE ABOVE !!! (automatically generated)
   if (__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_0) != RESET)
