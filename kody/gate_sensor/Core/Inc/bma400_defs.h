@@ -314,8 +314,8 @@
 /* Interrupt pin configuration macros */
 #define BMA400_INT_PUSH_PULL_ACTIVE_0             UINT8_C(0x00)
 #define BMA400_INT_PUSH_PULL_ACTIVE_1             UINT8_C(0x01)
-#define BMA400_INT_OPEN_DRIVE_ACTIVE_0            UINT8_C(0x02)
-#define BMA400_INT_OPEN_DRIVE_ACTIVE_1            UINT8_C(0x03)
+#define BMA400_INT_OPEN_DRAIN_ACTIVE_0            UINT8_C(0x02)
+#define BMA400_INT_OPEN_DRAIN_ACTIVE_1            UINT8_C(0x03)
 
 /* Interrupt Assertion status macros */
 #define BMA400_ASSERTED_WAKEUP_INT                UINT16_C(0x0001)

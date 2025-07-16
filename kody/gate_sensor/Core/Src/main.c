@@ -27,6 +27,8 @@
 #include "stdbool.h"
 #include "bma400.h"
 #include "math.h"
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -69,8 +71,6 @@ void enter_stop_mode(void)
 
     // re-init peripherals
     MX_GPIO_Init();
-    HAL_NVIC_EnableIRQ(EXTI0_1_IRQn);
-
     MX_I2C1_Init();
     MX_USART1_UART_Init();
 }
@@ -97,9 +97,9 @@ void configure_bma400(struct bma400_dev *dev)
     // wake-up interrupt on motion detection on Z axe
     dev_conf[1].type = BMA400_AUTOWAKEUP_INT;
     dev_conf[1].param.wakeup.wakeup_ref_update = BMA400_UPDATE_ONE_TIME;
-    dev_conf[1].param.wakeup.sample_count = BMA400_SAMPLE_COUNT_2;
+    dev_conf[1].param.wakeup.sample_count = BMA400_SAMPLE_COUNT_1;
     dev_conf[1].param.wakeup.wakeup_axes_en = BMA400_AXIS_Z_EN;
-    dev_conf[1].param.wakeup.int_wkup_threshold = 2;	// mg threshold
+    dev_conf[1].param.wakeup.int_wkup_threshold = 3;	// mg threshold
     dev_conf[1].param.wakeup.int_wkup_ref_z = 0;
     dev_conf[1].param.wakeup.int_chan = BMA400_INT_CHANNEL_1;
 
@@ -135,14 +135,14 @@ void configure_bma400(struct bma400_dev *dev)
 float calculate_gate_position(int16_t acc_z)
 {
     // normalize Z axis data to acceleration in g (+/-2g range, 12-bit res)
-    float acc_z_g = (float)acc_z / 1024.0f;
-    acc_z_g = fmaxf(fminf(acc_z_g, 1.0f), -1.0f);	// set range (in case of noise)
+    float acc_z_g = (float)acc_z / 955.0f;				// theoretically should be 1024 for 1g, but 958 is the actual max value observed on acc_z
+    acc_z_g = fmaxf(fminf(acc_z_g, 1.0f), -1.0f);		// set range (in case of noise)
 
-    float angle_rad = acosf(acc_z_g);  				// angle = arccos(Z/g) - calculate angle in radians
-    float angle_deg = angle_rad * (180.0f / M_PI);	// convert to degrees
-    if (angle_deg > 90.0f) angle_deg = 90.0f;		// limit to 0–90 degree
+    float angle_rad = acosf(acc_z_g);  					// angle = arccos(Z/g) - calculate angle in radians
+    float angle_deg = angle_rad * (180.0f / M_PI);		// convert to degrees
+    if (angle_deg > 90.0f) angle_deg = 90.0f;			// limit to 0–90 degree
 
-    return (int)((1.0f - angle_deg / 90.0f) * 100.0f);			// convert to %
+    return (int)((1.0f - angle_deg / 90.0f) * 100.0f);	// convert to %
 }
 /* USER CODE END 0 */
 
@@ -206,11 +206,12 @@ int main(void)
 		  int percent_open = calculate_gate_position(data.z);
 
 		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP8266
-		  HAL_Delay(5);
-		  char msg[16];
-		  int percent_open = calculate_gate_position(data.z);
+		  HAL_Delay(100);
+
+		  char msg[4];
 		  snprintf(msg, sizeof(msg), "%d\n", percent_open);
 		  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);	// send data to esp
+
 		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
 
 	      motion_detected = false;
