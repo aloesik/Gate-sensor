@@ -59,9 +59,8 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define NRST_Pin GPIO_PIN_2
 #define NRST_GPIO_Port GPIOF
-#define INT0_Pin GPIO_PIN_0
-#define INT0_GPIO_Port GPIOA
-#define INT0_EXTI_IRQn EXTI0_1_IRQn
+#define INT1_Pin GPIO_PIN_0
+#define INT1_GPIO_Port GPIOA
 #define EN_IO_Pin GPIO_PIN_5
 #define EN_IO_GPIO_Port GPIOA
 #define Button_Pin GPIO_PIN_6

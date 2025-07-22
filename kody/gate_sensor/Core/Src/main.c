@@ -50,9 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile bool motion_detected = false;
-volatile bool was_in_stop = false;	// dbg
-uint8_t power_mode;	// dbg
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -62,21 +60,14 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void enter_stop_mode(void)
+void enterStandby(void)
 {
-    HAL_SuspendTick();
-    HAL_PWR_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-    HAL_ResumeTick();
-
-    was_in_stop = true;	// dbg
-
-    // re-init peripherals
-    MX_GPIO_Init();
-    MX_I2C1_Init();
-    MX_USART1_UART_Init();
+	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF);
+  	HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
+    HAL_PWR_EnterSTANDBYMode();
 }
 
-void configure_bma400(struct bma400_dev *dev)
+void configureBMA400(struct bma400_dev *dev)
 {
     uint8_t rslt;
     struct bma400_device_conf dev_conf[3];
@@ -133,7 +124,7 @@ void configure_bma400(struct bma400_dev *dev)
     }
 }
 
-float calculate_gate_position(int16_t acc_z)
+float calculatePosition(int16_t acc_z)
 {
     // normalize Z axis data to acceleration in g (+/-2g range, 12-bit res)
     float acc_z_g = (float)acc_z / 955.0f;				// theoretically should be 1024 for 1g, but 958 is the actual max value observed on acc_z
@@ -186,8 +177,9 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
+  //__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // dbg - check power mode state
   bma400_init(&bma400);
-  configure_bma400(&bma400);
+  configureBMA400(&bma400);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -197,31 +189,21 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  bma400_get_power_mode(&power_mode, &bma400);	// dbg
+	  struct bma400_sensor_data data;	// structure for storing data
+	  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
 
-	  if (motion_detected)
-	  {
-		  struct bma400_sensor_data data;	// structure for storing data
-		  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
-		  bma400_get_power_mode(&power_mode, &bma400);	// dbg
+	  int percent_open = calculatePosition(data.z);
 
-		  int percent_open = calculate_gate_position(data.z);
+	  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP8266
+	  HAL_Delay(200);
 
-		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP8266
-		  HAL_Delay(100);
+	  char msg[5];
+	  snprintf(msg, sizeof(msg), "%d\n", percent_open);
+	  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);	// send data to esp
 
-		  char msg[4];
-		  snprintf(msg, sizeof(msg), "%d\n", percent_open);
-		  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);	// send data to esp
+	  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
 
-		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
-
-	      motion_detected = false;
-	  }
-	  else
-	  {
-	      enter_stop_mode();
-	  }
+	  enterStandby();
   }
   /* USER CODE END 3 */
 }
@@ -265,13 +247,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-    if (GPIO_Pin == GPIO_PIN_0)
-    {
-        motion_detected = true;
-    }
-}
 
 /* USER CODE END 4 */
 
@@ -283,7 +258,6 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-	__disable_irq();
   HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, SET);
   while (1)
   {
