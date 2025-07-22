@@ -50,7 +50,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+volatile uint16_t time_up = 0;
+volatile uint16_t time_down = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -124,7 +125,7 @@ void configureBMA400(struct bma400_dev *dev)
     }
 }
 
-float calculatePosition(int16_t acc_z)
+float calculatePosition(int16_t acc_z) // to be deleted
 {
     // normalize Z axis data to acceleration in g (+/-2g range, 12-bit res)
     float acc_z_g = (float)acc_z / 955.0f;				// theoretically should be 1024 for 1g, but 958 is the actual max value observed on acc_z
@@ -136,6 +137,31 @@ float calculatePosition(int16_t acc_z)
 
     return (int)((1.0f - angle_deg / 90.0f) * 100.0f);	// convert to %
 }
+
+void receiveTime(void)
+{
+	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP8266
+
+	uint8_t buf[4];
+	HAL_UART_Receive(&huart1, buf, 4, HAL_MAX_DELAY);
+
+	time_up   = buf[0] | (buf[1] << 8);
+	time_down = buf[2] | (buf[3] << 8);
+
+	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+}
+
+void receiveTestByte(void)
+{
+    HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, GPIO_PIN_SET);
+    HAL_Delay(200);
+
+    uint8_t test;
+    HAL_UART_Receive(&huart1, &test, 1, HAL_MAX_DELAY);
+
+    HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, GPIO_PIN_RESET);
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -180,6 +206,8 @@ int main(void)
   //__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // dbg - check power mode state
   bma400_init(&bma400);
   configureBMA400(&bma400);
+
+  receiveTestByte();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -189,7 +217,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  struct bma400_sensor_data data;	// structure for storing data
+	  /*struct bma400_sensor_data data;	// structure for storing data
 	  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
 
 	  int percent_open = calculatePosition(data.z);
@@ -201,7 +229,7 @@ int main(void)
 	  snprintf(msg, sizeof(msg), "%d\n", percent_open);
 	  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);	// send data to esp
 
-	  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+	  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);*/
 
 	  enterStandby();
   }
