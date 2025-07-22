@@ -1,6 +1,5 @@
 /* USER CODE BEGIN Header */
 /**
-  * Code for gate opening in one axis - from down to up
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
@@ -26,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdbool.h"
 #include "bma400.h"
 #include "math.h"
 #include <stdio.h>
@@ -50,15 +50,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile uint8_t gate_state = 0;	// 0 = STOP, 1 = OPENING, 2 = CLOSING
-volatile uint32_t gate_timer = 0;	// count time after detecing movement
-volatile uint8_t percent_closure = 0;		//	percentage value of gate closure
-volatile uint8_t send_data_flag = 0;
-int16_t acc_z_prev = 0;
-int16_t acc_x_prev = 0;
-int16_t acc_y_prev = 0;
-uint16_t time_up = 0;				// max time of gate opening
-uint16_t time_down = 0;				// max time of gate closing
+volatile bool motion_detected = false;
+volatile bool was_in_stop = false;	// dbg
+uint8_t power_mode;	// dbg
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,11 +62,13 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void enter_standby_mode(void)
+void enter_stop_mode(void)
 {
     HAL_SuspendTick();
-    HAL_PWR_EnterSTANDBYMode();
+    HAL_PWR_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
     HAL_ResumeTick();
+
+    was_in_stop = true;	// dbg
 
     // re-init peripherals
     MX_GPIO_Init();
@@ -99,12 +95,12 @@ void configure_bma400(struct bma400_dev *dev)
         BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN;
     dev_conf[0].param.auto_lp.auto_lp_timeout_threshold = 400; // 400 × 2.5 ms = 1 s
 
-    // wake-up interrupt on motion detection on X axis
+    // wake-up interrupt on motion detection on Z axe
     dev_conf[1].type = BMA400_AUTOWAKEUP_INT;
     dev_conf[1].param.wakeup.wakeup_ref_update = BMA400_UPDATE_ONE_TIME;
     dev_conf[1].param.wakeup.sample_count = BMA400_SAMPLE_COUNT_1;
-    dev_conf[1].param.wakeup.wakeup_axes_en = BMA400_AXIS_XYZ_EN;
-    dev_conf[1].param.wakeup.int_wkup_threshold = 2;	// mg threshold
+    dev_conf[1].param.wakeup.wakeup_axes_en = BMA400_AXIS_Z_EN;
+    dev_conf[1].param.wakeup.int_wkup_threshold = 3;	// mg threshold
     dev_conf[1].param.wakeup.int_wkup_ref_z = 0;
     dev_conf[1].param.wakeup.int_chan = BMA400_INT_CHANNEL_1;
 
@@ -137,63 +133,18 @@ void configure_bma400(struct bma400_dev *dev)
     }
 }
 
-void check_gate_direction(struct bma400_dev *dev)
+float calculate_gate_position(int16_t acc_z)
 {
-    struct bma400_sensor_data data;
-    bma400_get_accel_data(BMA400_DATA_ONLY, &data, dev);
+    // normalize Z axis data to acceleration in g (+/-2g range, 12-bit res)
+    float acc_z_g = (float)acc_z / 955.0f;				// theoretically should be 1024 for 1g, but 958 is the actual max value observed on acc_z
+    acc_z_g = fmaxf(fminf(acc_z_g, 1.0f), -1.0f);		// set range (in case of noise)
 
-    int16_t acc_x_now = data.x;
-    int16_t delta_x = acc_x_now - acc_x_prev;
+    float angle_rad = acosf(acc_z_g);  					// angle = arccos(Z/g) - calculate angle in radians
+    float angle_deg = angle_rad * (180.0f / M_PI);		// convert to degrees
+    if (angle_deg > 90.0f) angle_deg = 90.0f;			// limit to 0–90 degree
 
-    int16_t acc_y_now = data.y;
-    int16_t delta_y = acc_y_now - acc_y_prev;
-
-    int16_t acc_z_now = data.z;
-    int16_t delta_z = acc_z_now - acc_z_prev;
-
-    if (delta_x > 1 || delta_y > 1 || delta_z > 1)
-    {
-        gate_state = 1; // opening
-    }
-    else if (delta_x < -1 || delta_y < -1 || delta_z < -1)
-    {
-        gate_state = 2; // closing
-    }
-
-    acc_x_prev = acc_x_now;
-    acc_y_prev = acc_y_now;
-    acc_z_prev = acc_z_now;
+    return (int)((1.0f - angle_deg / 90.0f) * 100.0f);	// convert to %
 }
-
-
-void update_gate_position()
-{
-    if (gate_state == 1)	// Opening
-    {
-        if (gate_timer >= time_up)
-        {
-        	percent_closure = 100;
-            gate_state = 0;
-        }
-        else
-        {
-        	percent_closure = (gate_timer * 100) / time_up;
-        }
-    }
-    else if (gate_state == 2)	// Closing
-    {
-        if (gate_timer >= time_down)
-        {
-        	percent_closure = 0;
-            gate_state = 0;
-        }
-        else
-        {
-        	percent_closure = 100 - (gate_timer * 100) / time_down;
-        }
-    }
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -237,19 +188,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   bma400_init(&bma400);
   configure_bma400(&bma400);
-
-  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
-  HAL_Delay(200);
-
-  uint8_t buffer[4];
-  HAL_UART_Receive(&huart1, buffer, 4, HAL_MAX_DELAY);
-  time_up   = buffer[0] | (buffer[1] << 8);
-  time_down = buffer[2] | (buffer[3] << 8);
-
-  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
-
-  HAL_TIM_Base_Start_IT(&htim14);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -259,27 +197,30 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  check_gate_direction(&bma400);
+	  bma400_get_power_mode(&power_mode, &bma400);	// dbg
 
-	  if (send_data_flag)	// if gate is opening or closing
+	  if (motion_detected)
 	  {
-		  send_data_flag = 0;
+		  struct bma400_sensor_data data;	// structure for storing data
+		  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
+		  bma400_get_power_mode(&power_mode, &bma400);	// dbg
+
+		  int percent_open = calculate_gate_position(data.z);
 
 		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP8266
-		  HAL_Delay(200);
+		  HAL_Delay(100);
 
-		  char msg[5];
-		  snprintf(msg, sizeof(msg), "%d\n", percent_closure);
+		  char msg[4];
+		  snprintf(msg, sizeof(msg), "%d\n", percent_open);
 		  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);	// send data to esp
 
 		  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+
+	      motion_detected = false;
 	  }
-	  else if ((gate_state == 1 && gate_timer >= time_up) ||
-	           (gate_state == 2 && gate_timer >= time_down))	// if gate has finished opening or closing
+	  else
 	  {
-		  gate_state = 0; // STOP
-		  __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF);
-		  enter_standby_mode();
+	      enter_stop_mode();
 	  }
   }
   /* USER CODE END 3 */
@@ -324,21 +265,12 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_TIM_PeriodElapsedCallback (TIM_HandleTypeDef *htim)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(htim->Instance == TIM14)
-	{
-		if(gate_state != 0)
-		{
-			gate_timer += 1000;
-			update_gate_position();
-			send_data_flag = 1;
-		}
-		else
-		{
-			__HAL_TIM_SET_COUNTER(&htim14, 0);
-		}
-	}
+    if (GPIO_Pin == GPIO_PIN_0)
+    {
+        motion_detected = true;
+    }
 }
 
 /* USER CODE END 4 */

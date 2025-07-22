@@ -1,7 +1,7 @@
-../Core/Src/main.c:64:6:enter_stop_mode	8	static
-../Core/Src/main.c:78:6:configure_bma400	72	static
-../Core/Src/main.c:135:7:calculate_gate_position	32	static
-../Core/Src/main.c:153:5:main	72	static
-../Core/Src/main.c:231:6:SystemClock_Config	64	static
-../Core/Src/main.c:266:6:HAL_GPIO_EXTI_Callback	16	static
-../Core/Src/main.c:280:6:Error_Handler	8	static,ignoring_inline_asm
+../Core/Src/main.c:65:6:enter_stop_mode	8	static
+../Core/Src/main.c:79:6:configure_bma400	72	static
+../Core/Src/main.c:136:7:calculate_gate_position	32	static
+../Core/Src/main.c:154:5:main	72	static
+../Core/Src/main.c:233:6:SystemClock_Config	64	static
+../Core/Src/main.c:268:6:HAL_GPIO_EXTI_Callback	16	static
+../Core/Src/main.c:282:6:Error_Handler	8	static,ignoring_inline_asm
