@@ -1,0 +1,10 @@
+15:25:27 **** Incremental Build of configuration Debug for project gate_sensor_time ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor_time.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24996	     92	   2244	  27332	   6ac4	gate_sensor_time.elf
+Finished building: default.size.stdout
+ 
+
+15:25:28 Build Finished. 0 errors, 0 warnings. (took 607ms)
+

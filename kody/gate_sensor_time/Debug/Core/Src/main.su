@@ -1,5 +1,6 @@
-../Core/Src/main.c:63:6:enterStandby	8	static
-../Core/Src/main.c:70:6:configureBMA400	72	static
-../Core/Src/main.c:132:5:main	120	static
-../Core/Src/main.c:201:6:SystemClock_Config	64	static
-../Core/Src/main.c:243:6:Error_Handler	8	static
+../Core/Src/main.c:64:6:enterStandby	8	static
+../Core/Src/main.c:71:6:configureBMA400	72	static
+../Core/Src/main.c:132:5:main	8	static
+../Core/Src/main.c:188:6:SystemClock_Config	64	static
+../Core/Src/main.c:223:6:HAL_TIM_PeriodElapsedCallback	88	static
+../Core/Src/main.c:248:6:Error_Handler	8	static

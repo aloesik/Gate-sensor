@@ -51,6 +51,7 @@
 
 /* USER CODE BEGIN PV */
 uint32_t time = 0;
+struct bma400_dev bma400;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -107,17 +108,16 @@ void configureBMA400(struct bma400_dev *dev)
 
     // configure accelerometer
     sensor_conf.type = BMA400_ACCEL;
-    sensor_conf.param.accel.odr = BMA400_ODR_800HZ;
+    sensor_conf.param.accel.odr = BMA400_ODR_100HZ;
     sensor_conf.param.accel.range = BMA400_RANGE_2G;
-    sensor_conf.param.accel.data_src = BMA400_DATA_SRC_ACCEL_FILT_LP;
+    sensor_conf.param.accel.data_src = BMA400_DATA_SRC_ACCEL_FILT_2;
     sensor_conf.param.accel.osr = BMA400_ACCEL_OSR_SETTING_3;
-    sensor_conf.param.accel.filt1_bw = BMA400_ACCEL_FILT1_BW_0;
 
     rslt = bma400_set_sensor_conf(&sensor_conf, 1, dev);
     if (rslt != BMA400_OK) Error_Handler();
 
     // enable auto wakeup
-   rslt = set_auto_wakeup(BMA400_ENABLE, dev);
+    rslt = set_auto_wakeup(BMA400_ENABLE, dev);
     if (rslt != BMA400_OK)
     {
         Error_Handler();
@@ -133,8 +133,6 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	struct bma400_dev bma400;
-
 	bma400.intf = BMA400_I2C_INTF;
 	bma400.intf_ptr = &hi2c1;
 	bma400.read = user_i2c_read;
@@ -168,25 +166,14 @@ int main(void)
   bma400_init(&bma400);
   configureBMA400(&bma400);
   HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+  HAL_Delay(200);
+  HAL_TIM_Base_Start_IT(&htim14);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (time < 10000)
-
+  while (1)
   {
-	  struct bma400_sensor_data data;	// structure for storing data
-	  bma400_get_accel_data(BMA400_DATA_SENSOR_TIME, &data, &bma400);
-
-	  char msg[40];
-	  snprintf(msg, sizeof(msg), "%d,%d,%d,%lu\n", data.x, data.y, data.z, data.sensortime);
-
-	  //HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP826
-	  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-	  HAL_Delay(100);
-	  time += 100;
-	  //HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
-	  //enterStandby();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -233,7 +220,25 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance == TIM14)
+	{
+		  struct bma400_sensor_data data;	// structure for storing data
+		  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
 
+		  char msg[40];
+		  snprintf(msg, sizeof(msg), "%d,%d,%d\n", data.x, data.y, data.z);
+
+		  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+		  time += 10;
+
+		  if (time >= 12000)
+		  {
+			  HAL_TIM_Base_Stop_IT(&htim14);
+		  }
+	}
+}
 /* USER CODE END 4 */
 
 /**
@@ -251,8 +256,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
