@@ -39,7 +39,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define MAX_FIFO_SAMPLES 32
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,61 +67,124 @@ void enterStandby(void)
     HAL_PWR_EnterSTANDBYMode();
 }
 
+// Configure BMA400 for low power + wake-up on Y-axis motion
 void configureBMA400(struct bma400_dev *dev)
 {
-    uint8_t rslt;
-    struct bma400_device_conf dev_conf[3];
-    struct bma400_sensor_conf sensor_conf;
+	bma400_set_power_mode(BMA400_MODE_LOW_POWER, dev);	// set initial power mode to low power
 
-    // Set initial power mode to low power
-    rslt = bma400_set_power_mode(BMA400_MODE_LOW_POWER, dev);
-    if (rslt != BMA400_OK)
+	struct bma400_device_conf dev_conf[] = {
+		{
+			.type = BMA400_AUTO_LOW_POWER,	// auto low power after movement stops (350 ms)
+			.param.auto_lp = {
+				.auto_low_power_trigger = BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN,
+				.auto_lp_timeout_threshold = 140	// 140 x 2.5 ms = 350 ms
+			}
+		},
+		{
+			.type = BMA400_AUTOWAKEUP_INT,	// wake-up interrupt on motion detection on Z axe
+			.param.wakeup = {
+				.wakeup_ref_update = BMA400_UPDATE_ONE_TIME,
+				.sample_count = BMA400_SAMPLE_COUNT_2,
+				.wakeup_axes_en = BMA400_AXIS_Y_EN,
+				.int_wkup_threshold = 1,				// mg threshold
+				.int_chan = BMA400_INT_CHANNEL_1
+			}
+		},
+		{
+			.type = BMA400_INT_PIN_CONF,	// configure interrupt pin
+			.param.int_conf = {
+				.int_chan = BMA400_INT_CHANNEL_1,
+				.pin_conf = BMA400_INT_OPEN_DRAIN_ACTIVE_0
+			}
+		}
+	};
+
+	bma400_set_device_conf(dev_conf, 3, dev);
+
+	struct bma400_sensor_conf sensor_conf = {
+		.type = BMA400_ACCEL,	// configure accelerometer
+		.param.accel = {
+			.range = BMA400_RANGE_2G,
+			.data_src = BMA400_DATA_SRC_ACCEL_FILT_2,
+			.osr = BMA400_ACCEL_OSR_SETTING_3,
+			.odr = BMA400_ODR_100HZ
+		}
+	};
+
+	bma400_set_sensor_conf(&sensor_conf, 1, dev);
+	set_auto_wakeup(BMA400_ENABLE, dev);	// enable auto wake up
+}
+
+void configureFifo(struct bma400_dev *dev)
+{
+	struct bma400_device_conf fifo_conf = {
+		.type = BMA400_FIFO_CONF,
+		.param.fifo_conf = {
+			.conf_regs = BMA400_FIFO_Y_EN | BMA400_FIFO_DATA_SRC,
+			.conf_status = BMA400_ENABLE
+		}
+	};
+
+	if (bma400_set_device_conf(&fifo_conf, 1, dev) != BMA400_OK ||
+		bma400_set_fifo_flush(dev) != BMA400_OK)
+		Error_Handler();
+}
+
+uint8_t readFifoY(int16_t *out, uint8_t max_samples, struct bma400_dev *dev)
+{
+    struct bma400_fifo_data fifo = {0};
+    static uint8_t fifo_data[MAX_FIFO_SAMPLES * 2];		// 2 bytes per sample (32 samples)
+
+    struct bma400_fifo_sensor_data accel_data[MAX_FIFO_SAMPLES];
+    uint16_t accel_count = MAX_FIFO_SAMPLES;
+
+    fifo.data = fifo_data;
+    fifo.length = sizeof(fifo_data);
+
+    if (bma400_get_fifo_data(&fifo, dev) != BMA400_OK)
+        return 0;
+
+    if (bma400_extract_accel(&fifo, accel_data, &accel_count, dev) != BMA400_OK)
+        return 0;
+
+    uint8_t copied = (accel_count > max_samples) ? max_samples : accel_count;
+    for (uint8_t i = 0; i < copied; i++)
+        out[i] = accel_data[i].y;
+
+    return copied;
+}
+
+bool detectGateMotion(const int16_t *data)
+{
+    float sigma[4] = {0};
+
+    // calculate SD from 4 blocks adn 8 samples within
+    for (uint8_t block = 0; block < 4; block++)
     {
-        Error_Handler();
+        float sum = 0, mean = 0, variance = 0;
+        const int16_t *ptr = &data[block * 8];
+
+        for (uint8_t i = 0; i < 8; i++)
+            sum += ptr[i];
+
+        mean = sum / 8.0f;
+
+        for (uint8_t i = 0; i < 8; i++)
+            variance += powf(ptr[i] - mean, 2);
+
+        sigma[block] = sqrtf(variance / 8.0f);
     }
 
-    // auto low power after movement stops (1 s)
-    dev_conf[0].type = BMA400_AUTO_LOW_POWER;
-    dev_conf[0].param.auto_lp.auto_low_power_trigger =
-        BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN;
-    dev_conf[0].param.auto_lp.auto_lp_timeout_threshold = 100; // 400 × 2.5 ms = 1 s
-
-    // wake-up interrupt on motion detection on Z axe
-    dev_conf[1].type = BMA400_AUTOWAKEUP_INT;
-    dev_conf[1].param.wakeup.wakeup_ref_update = BMA400_UPDATE_ONE_TIME;
-    dev_conf[1].param.wakeup.sample_count = BMA400_SAMPLE_COUNT_2;
-    dev_conf[1].param.wakeup.wakeup_axes_en = BMA400_AXIS_XYZ_EN;
-    dev_conf[1].param.wakeup.int_wkup_threshold = 1;	// mg threshold
-    dev_conf[1].param.wakeup.int_wkup_ref_z = 0;
-    dev_conf[1].param.wakeup.int_chan = BMA400_INT_CHANNEL_1;
-
-    dev_conf[2].type = BMA400_INT_PIN_CONF;
-    dev_conf[2].param.int_conf.int_chan = BMA400_INT_CHANNEL_1;
-    dev_conf[2].param.int_conf.pin_conf = BMA400_INT_OPEN_DRAIN_ACTIVE_0;
-
-    rslt = bma400_set_device_conf(dev_conf, 3, dev);
-    if (rslt != BMA400_OK)
+    // check if deltas between next sigmas are >= 5 LSB
+    uint8_t count = 0;
+    for (uint8_t i = 0; i < 3; i++)
     {
-        Error_Handler();
+        float diff = fabsf(sigma[i + 1] - sigma[i]);
+        if (diff >= 5.0f)
+            count++;
     }
 
-    // configure accelerometer
-    sensor_conf.type = BMA400_ACCEL;
-    sensor_conf.param.accel.odr = BMA400_ODR_800HZ;
-    sensor_conf.param.accel.range = BMA400_RANGE_2G;
-    sensor_conf.param.accel.data_src = BMA400_DATA_SRC_ACCEL_FILT_LP;
-    sensor_conf.param.accel.osr = BMA400_ACCEL_OSR_SETTING_3;
-    sensor_conf.param.accel.filt1_bw = BMA400_ACCEL_FILT1_BW_0;
-
-    rslt = bma400_set_sensor_conf(&sensor_conf, 1, dev);
-    if (rslt != BMA400_OK) Error_Handler();
-
-    // enable auto wakeup
-   rslt = set_auto_wakeup(BMA400_ENABLE, dev);
-    if (rslt != BMA400_OK)
-    {
-        Error_Handler();
-    }
+    return (count >= 3);
 }
 /* USER CODE END 0 */
 
@@ -133,13 +196,13 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	struct bma400_dev bma400;
-
-	bma400.intf = BMA400_I2C_INTF;
-	bma400.intf_ptr = &hi2c1;
-	bma400.read = user_i2c_read;
-	bma400.write = user_i2c_write;
-	bma400.delay_us = user_delay_us;
+	struct bma400_dev bma400 = {
+		.intf = BMA400_I2C_INTF,
+		.intf_ptr = &hi2c1,
+		.read = user_i2c_read,
+		.write = user_i2c_write,
+		.delay_us = user_delay_us
+	};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -167,17 +230,19 @@ int main(void)
   //__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // dbg - check power mode state
   bma400_init(&bma400);
   configureBMA400(&bma400);
-  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+  configureFifo(&bma400);
 
-  struct bma400_sensor_data data;	// structure for storing data
-  bma400_get_accel_data(BMA400_DATA_SENSOR_TIME, &data, &bma400);
+  int16_t y_samples[32];
+  uint8_t count = readFifoY(y_samples, 32, &bma400);
 
-  char msg[40];
-  snprintf(msg, sizeof(msg), "%d,%d,%d,%lu\n", data.x, data.y, data.z, data.sensortime);
-
-  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);	// activate ESP826
-  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-  HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+  if (count == 32) // FIFO has to fill up with 32 samples
+  {
+      bool is_moving = detectGateMotion(y_samples);
+      const char *msg = is_moving ? "moving\r\n" : "stop\r\n";
+      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+      HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+  }
   enterStandby();
   /* USER CODE END 2 */
 
