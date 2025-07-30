@@ -81,12 +81,12 @@ void configureBMA400(struct bma400_dev *dev)
 			}
 		},
 		{
-			.type = BMA400_AUTOWAKEUP_INT,	// wake-up interrupt on motion detection on Z axe
+			.type = BMA400_AUTOWAKEUP_INT,	// wake-up interrupt on motion detection on Y axis
 			.param.wakeup = {
 				.wakeup_ref_update = BMA400_UPDATE_ONE_TIME,
 				.sample_count = BMA400_SAMPLE_COUNT_2,
 				.wakeup_axes_en = BMA400_AXIS_Y_EN,
-				.int_wkup_threshold = 1,				// mg threshold
+				.int_wkup_threshold = 15,				// 15 mg threshold
 				.int_chan = BMA400_INT_CHANNEL_1
 			}
 		},
@@ -117,6 +117,7 @@ void configureBMA400(struct bma400_dev *dev)
 
 void configureFifo(struct bma400_dev *dev)
 {
+	// stream mode, don't stop on full
 	struct bma400_device_conf fifo_conf = {
 		.type = BMA400_FIFO_CONF,
 		.param.fifo_conf = {
@@ -128,28 +129,32 @@ void configureFifo(struct bma400_dev *dev)
 	if (bma400_set_device_conf(&fifo_conf, 1, dev) != BMA400_OK ||
 		bma400_set_fifo_flush(dev) != BMA400_OK)
 		Error_Handler();
+	HAL_Delay(10);
 }
 
 uint8_t readFifoY(int16_t *out, uint8_t max_samples, struct bma400_dev *dev)
 {
     struct bma400_fifo_data fifo = {0};
-    static uint8_t fifo_data[MAX_FIFO_SAMPLES * 2];		// 2 bytes per sample (32 samples)
+    static uint8_t fifo_data[MAX_FIFO_SAMPLES * 3];		// buffer for raw FIFO bytes (1 byte header + 2 bytes per Y sample)
 
-    struct bma400_fifo_sensor_data accel_data[MAX_FIFO_SAMPLES];
+    struct bma400_fifo_sensor_data accel_data[MAX_FIFO_SAMPLES];	// buuffer for decoded samples
     uint16_t accel_count = MAX_FIFO_SAMPLES;
 
     fifo.data = fifo_data;
     fifo.length = sizeof(fifo_data);
 
-    if (bma400_get_fifo_data(&fifo, dev) != BMA400_OK)
+    if (bma400_get_fifo_data(&fifo, dev) != BMA400_OK)	// read raw FIFO data
         return 0;
 
-    if (bma400_extract_accel(&fifo, accel_data, &accel_count, dev) != BMA400_OK)
+    if (bma400_extract_accel(&fifo, accel_data, &accel_count, dev) != BMA400_OK)	// decode FIFO data (eg. 1024)
         return 0;
 
-    uint8_t copied = (accel_count > max_samples) ? max_samples : accel_count;
+    uint8_t copied = (accel_count > max_samples) ? max_samples : accel_count;	// limit number of samples copied to buffer
+
     for (uint8_t i = 0; i < copied; i++)
+    {
         out[i] = accel_data[i].y;
+    }
 
     return copied;
 }
@@ -158,24 +163,29 @@ bool detectGateMotion(const int16_t *data)
 {
     float sigma[4] = {0};
 
-    // calculate SD from 4 blocks adn 8 samples within
+    // calculate SD from 4 blocks of 8 samples each
     for (uint8_t block = 0; block < 4; block++)
     {
-        float sum = 0, mean = 0, variance = 0;
-        const int16_t *ptr = &data[block * 8];
+        float sum = 0, mean = 0, sum_diff_squared = 0;
+        const int16_t *ptr = &data[block * 8];			// pointer to start of current block
 
+        // calculate mean of the 8 samples
         for (uint8_t i = 0; i < 8; i++)
+        {
             sum += ptr[i];
-
+        }
         mean = sum / 8.0f;
 
+        // calculate sum of squared differences from the mean
         for (uint8_t i = 0; i < 8; i++)
-            variance += powf(ptr[i] - mean, 2);
+        {
+        	sum_diff_squared += powf(ptr[i] - mean, 2);
+        }
 
-        sigma[block] = sqrtf(variance / 8.0f);
+        sigma[block] = sqrtf(sum_diff_squared / 8.0f); // calculate standard deviation
     }
 
-    // check if deltas between next sigmas are >= 5 LSB
+    // count how many times the difference between adjacent sigmas exceeds threshold (5 LSB)
     uint8_t count = 0;
     for (uint8_t i = 0; i < 3; i++)
     {
@@ -184,7 +194,7 @@ bool detectGateMotion(const int16_t *data)
             count++;
     }
 
-    return (count >= 3);
+    return (count >= 3); // if 3 times threshold was exceeded -> motion detected
 }
 /* USER CODE END 0 */
 
@@ -232,14 +242,23 @@ int main(void)
   configureBMA400(&bma400);
   configureFifo(&bma400);
 
+  uint16_t fifo_len = 0;
+  do {
+      uint8_t fifo_len_raw[2];
+      bma400_get_regs(0x12, fifo_len_raw, 2, &bma400);
+      fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      HAL_Delay(5);
+  } while (fifo_len < 96);  // zbierzesz dokładnie 32 próbki Y (3 bajty każda)
+
   int16_t y_samples[32];
   uint8_t count = readFifoY(y_samples, 32, &bma400);
-
+  __NOP();
   if (count == 32) // FIFO has to fill up with 32 samples
   {
       bool is_moving = detectGateMotion(y_samples);
-      const char *msg = is_moving ? "moving\r\n" : "stop\r\n";
+      const char *msg = is_moving ? "moving\n" : "stop\n";
       HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+      HAL_Delay(200);
       HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
       HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
   }

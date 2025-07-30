@@ -381,3 +381,1751 @@ Finished building: default.size.stdout
  
 Finished building: gate_sensor.list
  
+12:09:24 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.o"
+arm-none-eabi-gcc "../Core/Src/bma400.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bma400.d" -MT"Core/Src/bma400.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/bma400.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32c0xx_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32c0xx_hal_msp.d" -MT"Core/Src/stm32c0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32c0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32c0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32c0xx_it.d" -MT"Core/Src/stm32c0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32c0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32c0xx.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32c0xx.d" -MT"Core/Src/system_stm32c0xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32c0xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:09:38 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:10:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:18:34 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:24:01 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2252	  24384	   5f40	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:24:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2252	  24384	   5f40	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:26:16 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2252	  24384	   5f40	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:26:21 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2252	  24384	   5f40	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:27:00 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:27:05 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:27:17 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22032	     92	   2252	  24376	   5f38	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:31:11 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:246:54: error: 'dev' undeclared (first use in this function)
+  246 |       bma400_get_regs(BMA400_REG_STATUS, &status, 1, dev);
+      |                                                      ^~~
+../Core/Src/main.c:246:54: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:31:27 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:31:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:31:57 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:33:25 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:34:45 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2252	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:34:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2252	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:39:29 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22164	     92	   2252	  24508	   5fbc	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:39:36 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22164	     92	   2252	  24508	   5fbc	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:43:15 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22172	     92	   2252	  24516	   5fc4	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:43:21 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22172	     92	   2252	  24516	   5fc4	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:43:45 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22176	     92	   2252	  24520	   5fc8	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:43:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22176	     92	   2252	  24520	   5fc8	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+12:46:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'configureBMA400':
+../Core/Src/main.c:102:28: error: 'union bma400_device_params' has no member named 'gen1'
+  102 |                     .param.gen1 = {
+      |                            ^~~~
+../Core/Src/main.c:103:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'axes_sel'
+  103 |                         .axes_sel = BMA400_AXIS_Y_EN,
+      |                          ^~~~~~~~
+../Core/Src/main.c:104:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'criteria_sel'
+  104 |                         .criteria_sel = BMA400_ACTIVITY_INT,
+      |                          ^~~~~~~~~~~~
+../Core/Src/main.c:105:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'duration'
+  105 |                         .duration = 4, // ~40ms
+      |                          ^~~~~~~~
+../Core/Src/main.c:105:37: warning: excess elements in struct initializer
+  105 |                         .duration = 4, // ~40ms
+      |                                     ^
+../Core/Src/main.c:105:37: note: (near initialization for 'dev_conf[3].param.auto_wakeup')
+../Core/Src/main.c:106:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'ref_update'
+  106 |                         .ref_update = BMA400_UPDATE_ONE_TIME,
+      |                          ^~~~~~~~~~
+../Core/Inc/bma400_defs.h:190:59: warning: excess elements in struct initializer
+  190 | #define BMA400_UPDATE_ONE_TIME                    UINT8_C(0x01)
+      |                                                           ^~~~
+../Core/Src/main.c:106:39: note: in expansion of macro 'BMA400_UPDATE_ONE_TIME'
+  106 |                         .ref_update = BMA400_UPDATE_ONE_TIME,
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Inc/bma400_defs.h:190:59: note: (near initialization for 'dev_conf[3].param.auto_wakeup')
+  190 | #define BMA400_UPDATE_ONE_TIME                    UINT8_C(0x01)
+      |                                                           ^~~~
+../Core/Src/main.c:106:39: note: in expansion of macro 'BMA400_UPDATE_ONE_TIME'
+  106 |                         .ref_update = BMA400_UPDATE_ONE_TIME,
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:107:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'threshold'
+  107 |                         .threshold = 10, // mg
+      |                          ^~~~~~~~~
+../Core/Src/main.c:107:38: warning: excess elements in struct initializer
+  107 |                         .threshold = 10, // mg
+      |                                      ^~
+../Core/Src/main.c:107:38: note: (near initialization for 'dev_conf[3].param.auto_wakeup')
+../Core/Src/main.c:108:26: error: 'struct bma400_auto_wakeup_conf' has no member named 'int_chan'
+  108 |                         .int_chan = BMA400_INT_CHANNEL_1
+      |                          ^~~~~~~~
+../Core/Src/main.c:108:37: warning: excess elements in struct initializer
+  108 |                         .int_chan = BMA400_INT_CHANNEL_1
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:108:37: note: (near initialization for 'dev_conf[3].param.auto_wakeup')
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:47:21 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:57:26 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:243:19: error: 'BMA400_REG_PWR_CONF' undeclared (first use in this function); did you mean 'BMA400_INT_PIN_CONF'?
+  243 |   bma400_get_regs(BMA400_REG_PWR_CONF, &power_mode, 1, &bma400);
+      |                   ^~~~~~~~~~~~~~~~~~~
+      |                   BMA400_INT_PIN_CONF
+../Core/Src/main.c:243:19: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+12:58:46 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2252	  24408	   5f58	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+12:58:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2252	  24408	   5f58	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:01:03 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:255:11: error: redefinition of 'status'
+  255 |   uint8_t status = 0;
+      |           ^~~~~~
+../Core/Src/main.c:244:11: note: previous definition of 'status' with type 'uint8_t' {aka 'unsigned char'}
+  244 |   uint8_t status = 0;
+      |           ^~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:01:49 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:01:56 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:03:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:03:13 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:04:30 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:05:20 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:05:51 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:248:26: error: 'status' undeclared (first use in this function); did you mean 'status_1'?
+  248 |   bma400_get_regs(0x03, &status, 1, &bma400);
+      |                          ^~~~~~
+      |                          status_1
+../Core/Src/main.c:248:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:244:11: warning: unused variable 'status_1' [-Wunused-variable]
+  244 |   uint8_t status_1 = 0;
+      |           ^~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:06:04 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  12488	     12	   1876	  14376	   3828	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:06:08 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22128	     92	   2252	  24472	   5f98	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:06:12 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22128	     92	   2252	  24472	   5f98	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:10:11 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:10:15 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2252	  24404	   5f54	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:19:10 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2252	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:19:18 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2252	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:19:52 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2252	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:30:56 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:251:12: warning: unused variable 'fifo_len' [-Wunused-variable]
+  251 |   uint16_t fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      |            ^~~~~~~~
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22072	     92	   2252	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:31:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22072	     92	   2252	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:33:42 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:252:12: warning: unused variable 'fifo_len' [-Wunused-variable]
+  252 |   uint16_t fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      |            ^~~~~~~~
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22072	     92	   2252	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:33:49 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22072	     92	   2252	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:39:37 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:253:12: warning: unused variable 'fifo_len' [-Wunused-variable]
+  253 |   uint16_t fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      |            ^~~~~~~~
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:39:42 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:40:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:41:10 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:42:19 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:42:24 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22080	     92	   2252	  24424	   5f68	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:44:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:261:12: error: redefinition of 'fifo_len'
+  261 |   uint16_t fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      |            ^~~~~~~~
+../Core/Src/main.c:251:12: note: previous definition of 'fifo_len' with type 'uint16_t' {aka 'short unsigned int'}
+  251 |   uint16_t fifo_len = 0;
+      |            ^~~~~~~~
+../Core/Src/main.c:261:12: warning: unused variable 'fifo_len' [-Wunused-variable]
+  261 |   uint16_t fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
+      |            ^~~~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+13:44:26 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2252	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:44:30 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2252	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:47:20 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2252	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+13:47:23 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2252	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+13:47:56 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2252	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:05:29 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2284	  24476	   5f9c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:05:34 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2284	  24476	   5f9c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:05:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22100	     92	   2284	  24476	   5f9c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:06:49 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:06:56 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:08:04 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:08:36 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22072	     92	   2284	  24448	   5f80	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:09:28 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:09:53 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:10:02 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:35:23 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:37:22 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22068	     92	   2284	  24444	   5f7c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:38:30 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:38:40 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:39:02 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:39:46 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:40:05 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:40:20 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22064	     92	   2284	  24440	   5f78	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:41:25 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:41:35 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:42:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:42:54 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:43:17 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:44:02 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:44:33 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22036	     92	   2284	  24412	   5f5c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:46:43 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2284	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:47:34 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22040	     92	   2284	  24416	   5f60	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:49:57 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:50:20 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:50:45 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:52:35 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:52:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:53:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:53:20 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2284	  24436	   5f74	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:53:24 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2284	  24436	   5f74	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:54:52 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22060	     92	   2284	  24436	   5f74	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:56:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  21964	     92	   2284	  24340	   5f14	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+14:56:46 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21964	     92	   2284	  24340	   5f14	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:57:13 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21964	     92	   2284	  24340	   5f14	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:57:18 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21964	     92	   2284	  24340	   5f14	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+14:59:22 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:04:55 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:05:01 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22052	     92	   2284	  24428	   5f6c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:10:27 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_cortex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_dma_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_exti.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_flash_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_gpio.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_i2c_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_pwr_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_rcc_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_tim_ex.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart.o"
+arm-none-eabi-gcc "../Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.d" -MT"Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32C0xx_HAL_Driver/Src/stm32c0xx_hal_uart_ex.o"
+arm-none-eabi-gcc "../Core/Src/bma400.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/bma400.d" -MT"Core/Src/bma400.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/bma400.o"
+arm-none-eabi-gcc "../Core/Src/gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-gcc "../Core/Src/i2c.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/i2c.d" -MT"Core/Src/i2c.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/i2c.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32c0xx_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32c0xx_hal_msp.d" -MT"Core/Src/stm32c0xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32c0xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32c0xx_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32c0xx_it.d" -MT"Core/Src/stm32c0xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32c0xx_it.o"
+arm-none-eabi-gcc "../Core/Src/syscalls.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/syscalls.d" -MT"Core/Src/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/syscalls.o"
+arm-none-eabi-gcc "../Core/Src/sysmem.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sysmem.d" -MT"Core/Src/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/sysmem.o"
+arm-none-eabi-gcc "../Core/Src/system_stm32c0xx.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/system_stm32c0xx.d" -MT"Core/Src/system_stm32c0xx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/system_stm32c0xx.o"
+arm-none-eabi-gcc "../Core/Src/tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/tim.d" -MT"Core/Src/tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/tim.o"
+arm-none-eabi-gcc "../Core/Src/usart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/usart.d" -MT"Core/Src/usart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/usart.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:11:07 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:11:13 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:11:23 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:13:01 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:13:05 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:13:49 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:14:21 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	     92	   2284	  34340	   8624	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:17:26 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'readFifoY':
+../Core/Src/main.c:149:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  149 |     if (bma400_extract_accel(&fifo, accel_data, &accel_count, dev) != BMA400_OK)        // decode FIFO data (eg. 1024)
+      |     ^~
+../Core/Src/main.c:151:9: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  151 |         return 0;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31848	     92	   2284	  34224	   85b0	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:17:53 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31968	     92	   2284	  34344	   8628	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:17:58 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31968	     92	   2284	  34344	   8628	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:18:36 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31968	     92	   2284	  34344	   8628	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:19:30 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31968	     92	   2284	  34344	   8628	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:20:00 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31968	     92	   2284	  34344	   8628	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:23:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'readFifoY':
+../Core/Src/main.c:149:9: error: expected ';' before 'return'
+  149 |         return 0;
+      |         ^~~~~~
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:23:34 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:23:38 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:24:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:24:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:25:33 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:27:44 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31988	     92	   2284	  34364	   863c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:36:18 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'configureFifo':
+../Core/Src/main.c:124:80: error: 'BMA400_FIFO_h' undeclared (first use in this function); did you mean 'BMA400_FIFO_CONF'?
+  124 |                         .conf_regs = BMA400_FIFO_Y_EN | BMA400_FIFO_DATA_SRC | BMA400_FIFO_h,
+      |                                                                                ^~~~~~~~~~~~~
+      |                                                                                BMA400_FIFO_CONF
+../Core/Src/main.c:124:80: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:36:31 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31992	     92	   2284	  34368	   8640	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:36:35 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31992	     92	   2284	  34368	   8640	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:37:54 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31992	     92	   2284	  34368	   8640	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:40:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'configureFifo':
+../Core/Src/main.c:132:9: error: expected expression before 'uint8_t'
+  132 |         uint8_t fifo_config1 = 0x80;  // bit 7 = FIFO_HEADER_EN
+      |         ^~~~~~~
+../Core/Src/main.c:133:32: error: 'fifo_config1' undeclared (first use in this function); did you mean 'fifo_conf'?
+  133 |         bma400_set_regs(0x27, &fifo_config1, 1, dev);
+      |                                ^~~~~~~~~~~~
+      |                                fifo_conf
+../Core/Src/main.c:133:32: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Core/Src/subdir.mk:49: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+15:40:09 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:40:17 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:44:07 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:44:17 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:44:59 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:45:56 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:46:14 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:46:53 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:47:54 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:47:58 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:48:14 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:48:55 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:49:10 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31948	     92	   2284	  34324	   8614	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:50:07 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31952	     92	   2284	  34328	   8618	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:50:16 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31952	     92	   2284	  34328	   8618	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:50:55 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:51:01 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:52:45 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31984	     92	   2284	  34360	   8638	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:52:49 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31984	     92	   2284	  34360	   8638	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:54:39 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:54:46 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:56:08 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31956	     92	   2284	  34332	   861c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:56:13 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31956	     92	   2284	  34332	   861c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:56:37 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31956	     92	   2284	  34332	   861c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:56:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31956	     92	   2284	  34332	   861c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:57:04 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:57:08 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:57:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:57:45 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31960	     92	   2284	  34336	   8620	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+15:59:06 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+15:59:12 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+16:02:41 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  31972	     92	   2284	  34348	   862c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+16:02:50 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31972	     92	   2284	  34348	   862c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+16:03:32 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31972	     92	   2284	  34348	   862c	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+16:04:18 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor.elf
+ 
+arm-none-eabi-size  gate_sensor.elf 
+arm-none-eabi-objdump -h -S gate_sensor.elf  > "gate_sensor.list"
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor.list
+ 
+16:04:23 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
+16:05:44 **** Incremental Build of configuration Debug for project gate_sensor ****
+make -j8 all 
+arm-none-eabi-size  gate_sensor.elf 
+   text	   data	    bss	    dec	    hex	filename
+  32012	     92	   2284	  34388	   8654	gate_sensor.elf
+Finished building: default.size.stdout
+ 
