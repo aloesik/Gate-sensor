@@ -50,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+volatile uint16_t motion_time = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -249,26 +249,25 @@ int main(void)
       fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
       HAL_Delay(5);
   } while (fifo_len < 96);  // zbierzesz dokładnie 32 próbki Y (3 bajty każda)
-
-  int16_t y_samples[32];
-  uint8_t count = readFifoY(y_samples, 32, &bma400);
-  __NOP();
-  if (count == 32) // FIFO has to fill up with 32 samples
-  {
-      bool is_moving = detectGateMotion(y_samples);
-      const char *msg = is_moving ? "moving\n" : "stop\n";
-      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
-      HAL_Delay(200);
-      HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
-  }
-  enterStandby();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  int16_t y_samples[32];
+	  uint8_t count = readFifoY(y_samples, 32, &bma400);
+
+	  if (count == 32) // FIFO has to fill up with 32 samples
+	  {
+	      bool is_moving = detectGateMotion(y_samples);
+	      const char *msg = is_moving ? "moving\n" : "stop\n";
+	      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+	      HAL_Delay(200);
+	      HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+	  }
+	  enterStandby();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -315,7 +314,13 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance == TIM14)
+	{
+		motion_time += 100;
+	}
+}
 /* USER CODE END 4 */
 
 /**
@@ -333,8 +338,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

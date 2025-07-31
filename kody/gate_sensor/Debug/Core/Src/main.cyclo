@@ -1,8 +1,9 @@
 ../Core/Src/main.c:63:6:enterStandby	1
 ../Core/Src/main.c:71:6:configureBMA400	1
-../Core/Src/main.c:118:6:configureFifo	3
 ../Core/Src/main.c:135:9:readFifoY	5
 ../Core/Src/main.c:162:6:detectGateMotion	6
+../Core/Src/main.c:317:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:330:6:Error_Handler	1
+../Core/Src/main.c:118:6:configureFifo	2
+../Core/Src/main.c:282:6:SystemClock_Config	1
 ../Core/Src/main.c:205:5:main	4
-../Core/Src/main.c:283:6:SystemClock_Config	3
-../Core/Src/main.c:325:6:Error_Handler	1
