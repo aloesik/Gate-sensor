@@ -51,6 +51,8 @@
 
 /* USER CODE BEGIN PV */
 volatile uint16_t motion_time = 0;
+volatile uint16_t flag_2sec = 0;
+volatile uint16_t send_2sec = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -70,23 +72,27 @@ void enterStandby(void)
 // Configure BMA400 for low power + wake-up on Y-axis motion
 void configureBMA400(struct bma400_dev *dev)
 {
-	bma400_set_power_mode(BMA400_MODE_LOW_POWER, dev);	// set initial power mode to low power
+	if (bma400_set_power_mode(BMA400_MODE_LOW_POWER, dev) != BMA400_OK)
+	{
+		__NOP();
+		Error_Handler();
+	}
 
 	struct bma400_device_conf dev_conf[] = {
 		{
 			.type = BMA400_AUTO_LOW_POWER,	// auto low power after movement stops (350 ms)
 			.param.auto_lp = {
 				.auto_low_power_trigger = BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN,
-				.auto_lp_timeout_threshold = 140	// 140 x 2.5 ms = 350 ms
+				.auto_lp_timeout_threshold = 1500	// 250 x 2.5 ms =  ms
 			}
 		},
 		{
 			.type = BMA400_AUTOWAKEUP_INT,	// wake-up interrupt on motion detection on Y axis
 			.param.wakeup = {
-				.wakeup_ref_update = BMA400_UPDATE_ONE_TIME,
-				.sample_count = BMA400_SAMPLE_COUNT_2,
+				.wakeup_ref_update = BMA400_UPDATE_EVERY_TIME,
+				.sample_count = BMA400_SAMPLE_COUNT_1,
 				.wakeup_axes_en = BMA400_AXIS_Y_EN,
-				.int_wkup_threshold = 15,				// 15 mg threshold
+				.int_wkup_threshold = 10,				// 15 mg threshold
 				.int_chan = BMA400_INT_CHANNEL_1
 			}
 		},
@@ -196,6 +202,17 @@ bool detectGateMotion(const int16_t *data)
 
     return (count >= 3); // if 3 times threshold was exceeded -> motion detected
 }
+
+void Send16BitESP(UART_HandleTypeDef *huart, uint16_t value) {
+	char msg[16];
+	snprintf(msg, sizeof(msg), "%u\n", value);
+
+	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
+	HAL_Delay(200);
+	HAL_UART_Transmit(huart, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
+	HAL_Delay(10);
+	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+}
 /* USER CODE END 0 */
 
 /**
@@ -206,6 +223,9 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+	bool timer_started = false;
+	bool motion_detected = false;
+
 	struct bma400_dev bma400 = {
 		.intf = BMA400_I2C_INTF,
 		.intf_ptr = &hi2c1,
@@ -241,6 +261,7 @@ int main(void)
   bma400_init(&bma400);
   configureBMA400(&bma400);
   configureFifo(&bma400);
+  HAL_Delay(10);
 
   uint16_t fifo_len = 0;
   do {
@@ -248,7 +269,7 @@ int main(void)
       bma400_get_regs(0x12, fifo_len_raw, 2, &bma400);
       fifo_len = fifo_len_raw[0] | (fifo_len_raw[1] << 8);
       HAL_Delay(5);
-  } while (fifo_len < 96);  // zbierzesz dokładnie 32 próbki Y (3 bajty każda)
+  } while (fifo_len < 96);  // (1 header + 2 data bytes) * 32 samples
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -256,18 +277,34 @@ int main(void)
   while (1)
   {
 	  int16_t y_samples[32];
-	  uint8_t count = readFifoY(y_samples, 32, &bma400);
+	  readFifoY(y_samples, 32, &bma400);
 
-	  if (count == 32) // FIFO has to fill up with 32 samples
+	  motion_detected = detectGateMotion(y_samples);
+
+	  if (!motion_detected)
 	  {
-	      bool is_moving = detectGateMotion(y_samples);
-	      const char *msg = is_moving ? "moving\n" : "stop\n";
-	      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
-	      HAL_Delay(200);
-	      HAL_UART_Transmit(&huart1, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-	      HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+		  HAL_TIM_Base_Stop_IT(&htim14);
+		  if (motion_time >= 1)	// gate stopped while movement
+		  {
+			  Send16BitESP(&huart1, motion_time);
+			  enterStandby();
+		  }
+		  else
+		  {
+			  enterStandby();
+		  }
 	  }
-	  enterStandby();
+	  else if (motion_detected && flag_2sec == 1)
+	  {
+		  flag_2sec = 0;
+		  Send16BitESP(&huart1, send_2sec);
+	  }
+	  else if (motion_detected && !timer_started)
+	  {
+		  motion_time = 0;
+		  HAL_TIM_Base_Start_IT(&htim14);
+		  timer_started = true;
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -318,7 +355,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM14)
 	{
-		motion_time += 100;
+		motion_time++;
+
+		static uint16_t tick_counter = 0;
+		tick_counter++;
+
+		if (tick_counter >= 2000)
+		{
+			tick_counter = 0;
+			flag_2sec = 1;
+			send_2sec = motion_time;
+		}
 	}
 }
 /* USER CODE END 4 */
