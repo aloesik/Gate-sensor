@@ -52,6 +52,12 @@ default.size.stdout \
 OBJDUMP_LIST += \
 gate_sensor.list \
 
+OBJCOPY_HEX += \
+gate_sensor.hex \
+
+OBJCOPY_BIN += \
+gate_sensor.bin \
+
 
 # All Target
 all: main-build
@@ -75,12 +81,22 @@ gate_sensor.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+gate_sensor.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "gate_sensor.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+gate_sensor.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "gate_sensor.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout gate_sensor.elf gate_sensor.list gate_sensor.map
+	-$(RM) default.size.stdout gate_sensor.bin gate_sensor.elf gate_sensor.hex gate_sensor.list gate_sensor.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

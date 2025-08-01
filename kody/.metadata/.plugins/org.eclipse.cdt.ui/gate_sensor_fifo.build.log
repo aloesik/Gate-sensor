@@ -1,0 +1,19 @@
+14:09:06 **** Incremental Build of configuration Debug for project gate_sensor_fifo ****
+make -j8 all 
+arm-none-eabi-gcc -o "gate_sensor_fifo.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor_fifo\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_fifo.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor_fifo.elf
+ 
+arm-none-eabi-size  gate_sensor_fifo.elf 
+arm-none-eabi-objdump -h -S gate_sensor_fifo.elf  > "gate_sensor_fifo.list"
+arm-none-eabi-objcopy  -O ihex gate_sensor_fifo.elf  "gate_sensor_fifo.hex"
+   text	   data	    bss	    dec	    hex	filename
+  25316	     92	   2316	  27724	   6c4c	gate_sensor_fifo.elf
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor_fifo.hex
+ 
+Finished building: gate_sensor_fifo.list
+ 
+
+14:09:08 Build Finished. 0 errors, 0 warnings. (took 1s.393ms)
+

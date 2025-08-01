@@ -1,0 +1,175 @@
+(footprint "SOT23-R_INFINEON_12130336"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Small Outline Transistor; 3 leads, 2.9mm*2.4mm, reflow soldering\n\nINFINEON http://www.infineon.com/upload/Image/Packages/hlgf1014.gif\nINFINEON http://www.infineon.com/upload/Image/Packages/hlgf1015.gif")
+	(property "Reference" "REF**"
+		(at -1.9 -1.9 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "de17460d-a0cc-44ec-b222-e568f89e4d5b")
+		(effects
+			(font
+				(size 1.1684 1.1684)
+				(thickness 0.1016)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Value" "SOT23-R_INFINEON_12130336"
+		(at -1.9 3.2 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "fab85057-dfb6-4209-8e7d-d585037a0a04")
+		(effects
+			(font
+				(size 1.1684 1.1684)
+				(thickness 0.1016)
+			)
+			(justify left bottom)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "78eac668-d274-4833-adb4-5fbf6e0c5792")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "16e0d73a-2fcf-4eaa-93e9-7442a17fdbd0")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start -1.4 -0.635)
+		(end -1.4 0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "e6f47623-94be-4165-9fe8-e0ea2d3e9884")
+	)
+	(fp_line
+		(start 1.4 -0.635)
+		(end 1.4 0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7283b675-aa1b-49b7-8147-ac2d7a0bb2a2")
+	)
+	(fp_circle
+		(center -0.8 0.3)
+		(end -0.725 0.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "61d6e40e-6ef9-46a2-99ca-4165d1abb878")
+	)
+	(fp_line
+		(start -1.4 -0.635)
+		(end 1.4 -0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2d77d049-7c46-459b-9fcd-d6358db6eb56")
+	)
+	(fp_line
+		(start -1.4 0.635)
+		(end 1.4 0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "ff7307d4-0b2d-4dc0-bc7b-5fdd28339c10")
+	)
+	(fp_poly
+		(pts
+			(xy -1.15 1.27) (xy -0.75 1.27) (xy -0.75 0.635) (xy -1.15 0.635)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "fd72f809-30e0-4982-9a20-05e652db98a9")
+	)
+	(fp_poly
+		(pts
+			(xy -0.2 -0.635) (xy 0.2 -0.635) (xy 0.2 -1.27) (xy -0.2 -1.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "fc40785b-304a-4b80-a401-def45dfbf85d")
+	)
+	(fp_poly
+		(pts
+			(xy 0.75 1.27) (xy 1.15 1.27) (xy 1.15 0.635) (xy 0.75 0.635)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "2c5a4126-531b-440a-84c0-c00ee6cf8ac0")
+	)
+	(pad "1" smd roundrect
+		(at -1 1.1)
+		(size 0.8 0.9)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15875)
+		(solder_mask_margin 0)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "17ca00a5-241e-40b1-af11-22faa8cfeeb4")
+	)
+	(pad "2" smd roundrect
+		(at 1 1.1)
+		(size 0.8 0.9)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15875)
+		(solder_mask_margin 0)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "897ff004-dc6f-4a2b-a45d-738350731827")
+	)
+	(pad "3" smd roundrect
+		(at 0 -1.1)
+		(size 0.8 0.9)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.15875)
+		(solder_mask_margin 0)
+		(solder_paste_margin 0)
+		(thermal_bridge_angle 0)
+		(uuid "35a983fb-1e7b-4d75-b552-dda19ab4b2fb")
+	)
+	(embedded_fonts no)
+)

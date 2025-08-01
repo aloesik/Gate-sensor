@@ -1,0 +1,98 @@
+(kicad_sch
+	(version 20250114)
+	(generator "eeschema")
+	(generator_version "9.0")
+	(uuid "4b9eb203-c522-4bcd-b49f-ea0ba7e9605b")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 25.4 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "b17dd18a-ed33-405e-872e-fd35ce0a1a29")
+		(property "Sheetname" "PCB-wPAWS-0.1_1"
+			(at 25.4 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PCB-wPAWS-0.1_1.kicad_sch"
+			(at 25.4 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PCB-wPAWS-0.1"
+				(path "/4b9eb203-c522-4bcd-b49f-ea0ba7e9605b"
+					(page "1")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 76.2 25.4)
+		(size 12.7 3.81)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "bdf89d51-9db6-43f4-9a8a-d78291ae957a")
+		(property "Sheetname" "PCB-wPAWS-0.1_2"
+			(at 76.2 24.6884 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "PCB-wPAWS-0.1_2.kicad_sch"
+			(at 76.2 29.7946 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "PCB-wPAWS-0.1"
+				(path "/4b9eb203-c522-4bcd-b49f-ea0ba7e9605b"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
