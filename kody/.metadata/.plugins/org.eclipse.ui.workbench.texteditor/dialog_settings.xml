@@ -3,9 +3,12 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="false"/>
 	<list key="searchhistory">
+		<item value="fifo"/>
+		<item value="configurefifo"/>
+		<item value="led2"/>
+		<item value="HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, SET);"/>
 		<item value="fifo_read"/>
 		<item value="set_fifo_conf"/>
 		<item value="REG_FIFO_LENGTH"/>
-		<item value="fifo"/>
 	</list>
 </section>
