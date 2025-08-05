@@ -40,7 +40,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define SAMPLE_WINDOW 10
-#define MOTION_THRESHOLD 250.0f
+#define MOTION_THRESHOLD_START 180.0f
+#define MOTION_THRESHOLD_STOP 290.0f
 #define DEBOUNCE_TIME_MS 1000
 #define WARMUP_SAMPLES 10
 /* USER CODE END PD */
@@ -302,7 +303,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	        switch (motion_state)
 	        {
 	            case MOTION_IDLE:
-	                if (diff >= MOTION_THRESHOLD)
+	                if (diff >= MOTION_THRESHOLD_START)
 	                {
 	                    motion_state = MOTION_DEBOUNCE_START;
 	                    debounce_start_time = HAL_GetTick();
@@ -321,7 +322,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	                break;
 
 	            case MOTION_RUNNING:
-	                if (diff >= MOTION_THRESHOLD)
+	                if (diff >= MOTION_THRESHOLD_STOP)
 	                {
 	                    motion_state = MOTION_DEBOUNCE_STOP;
 	                    debounce_start_time = HAL_GetTick();
