@@ -75,7 +75,7 @@ void configureBMA400(struct bma400_dev *dev)
     struct bma400_sensor_conf sensor_conf;
 
     // Set initial power mode to low power
-    rslt = bma400_set_power_mode(BMA400_MODE_LOW_POWER, dev);
+    rslt = bma400_set_power_mode(BMA400_MODE_NORMAL, dev);
     if (rslt != BMA400_OK)
     {
         Error_Handler();
@@ -85,9 +85,9 @@ void configureBMA400(struct bma400_dev *dev)
     dev_conf[0].type = BMA400_AUTO_LOW_POWER;
     dev_conf[0].param.auto_lp.auto_low_power_trigger =
         BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN;
-    dev_conf[0].param.auto_lp.auto_lp_timeout_threshold = 100; // 400 × 2.5 ms = 1 s
+    dev_conf[0].param.auto_lp.auto_lp_timeout_threshold = 400; // 400 × 2.5 ms = 1 s
 
-    // wake-up interrupt on motion detection on Z axe
+    // wake-up interrupt on motion detection on Y axis
     dev_conf[1].type = BMA400_AUTOWAKEUP_INT;
     dev_conf[1].param.wakeup.wakeup_ref_update = BMA400_UPDATE_ONE_TIME;
     dev_conf[1].param.wakeup.sample_count = BMA400_SAMPLE_COUNT_2;
@@ -108,7 +108,7 @@ void configureBMA400(struct bma400_dev *dev)
 
     // configure accelerometer
     sensor_conf.type = BMA400_ACCEL;
-    sensor_conf.param.accel.odr = BMA400_ODR_100HZ;
+    sensor_conf.param.accel.odr = BMA400_ODR_800HZ;
     sensor_conf.param.accel.range = BMA400_RANGE_2G;
     sensor_conf.param.accel.data_src = BMA400_DATA_SRC_ACCEL_FILT_2;
     sensor_conf.param.accel.osr = BMA400_ACCEL_OSR_SETTING_3;
@@ -228,10 +228,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		  bma400_get_accel_data(BMA400_DATA_ONLY, &data, &bma400);
 
 		  char msg[40];
-		  snprintf(msg, sizeof(msg), "%d,%d,%d\n", data.x, data.y, data.z);
+		  snprintf(msg, sizeof(msg), "%d\n", data.y);
 
 		  HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
-		  time += 10;
+		  time += 1;
 
 		  if (time >= 12000)
 		  {

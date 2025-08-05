@@ -1,0 +1,10 @@
+../Core/Src/main.c:65:6:enterStandby	1
+../Core/Src/main.c:141:9:readFifoY	5
+../Core/Src/main.c:168:6:detectGateMotion	6
+../Core/Src/main.c:206:6:Send16BitESP	1
+../Core/Src/main.c:354:6:HAL_TIM_PeriodElapsedCallback	3
+../Core/Src/main.c:377:6:Error_Handler	1
+../Core/Src/main.c:73:6:configureBMA400	1
+../Core/Src/main.c:124:6:configureFifo	2
+../Core/Src/main.c:319:6:SystemClock_Config	1
+../Core/Src/main.c:222:5:main	6

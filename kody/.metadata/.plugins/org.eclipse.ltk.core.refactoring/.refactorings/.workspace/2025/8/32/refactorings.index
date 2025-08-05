@@ -1,0 +1,5 @@
+1754314978650	Delete resource 'gate_sensor2'
+1754410278069	Delete resource 'gate_sensor_fifo'
+1754410400492	Delete resource 'gate_sensor_fifo_bma400'
+1754410650744	Delete resource 'gate_sensor_fifo'
+1754410687073	Rename resource 'gate_sensor_blocks'

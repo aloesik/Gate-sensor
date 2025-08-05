@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;gate_sensor_blocks/gate_sensor_fifo&apos; to &apos;gate_sensor_blocks&apos;" description="Rename resource &apos;gate_sensor_fifo&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gate_sensor_fifo" name="gate_sensor_blocks" stamp="1754410113974" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;gate_sensor/gate_sensor_blocks&apos; to &apos;gate_sensor&apos;" description="Rename resource &apos;gate_sensor_blocks&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gate_sensor_blocks" name="gate_sensor" stamp="1754410693750" updateReferences="true"/>
+</session>
