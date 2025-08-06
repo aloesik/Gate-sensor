@@ -40,10 +40,11 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define SAMPLE_WINDOW 10
-#define MOTION_THRESHOLD_START 180.0f
-#define MOTION_THRESHOLD_STOP 290.0f
+#define MOTION_THRESHOLD_START 200.0f
+#define MOTION_THRESHOLD_STOP 300.0f
 #define DEBOUNCE_TIME_MS 1000
 #define WARMUP_SAMPLES 10
+#define STOP_BUFFER_SIZE 100
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
