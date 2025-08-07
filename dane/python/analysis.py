@@ -3,7 +3,7 @@ import numpy as np
 from collections import deque
 
 # Ścieżki
-input_file = "raw_data_800hz.xlsx"
+input_file = "big_full.xlsx"
 output_file = "statistics_800hz.xlsx"
 
 # Wczytaj dane z Excela
