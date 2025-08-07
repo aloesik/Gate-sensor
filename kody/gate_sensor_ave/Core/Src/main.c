@@ -39,12 +39,12 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define SAMPLE_WINDOW 10
-#define MOTION_THRESHOLD_START 200.0f
-#define MOTION_THRESHOLD_STOP 300.0f
-#define DEBOUNCE_TIME_MS 1000
-#define WARMUP_SAMPLES 10
-#define STOP_BUFFER_SIZE 100
+#define SAMPLE_WINDOW 			10
+#define MOTION_THRESHOLD_START 	200.0f
+#define MOTION_THRESHOLD_STOP 	120.0f
+#define STABLE_WINDOW			300
+#define DEBOUNCE_TIME_MS 		1000
+#define WARMUP_SAMPLES 			10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -57,15 +57,24 @@
 /* USER CODE BEGIN PV */
 float sample_buffer[SAMPLE_WINDOW] = {0};
 uint8_t sample_index = 0;
+
+static float avg_hist[STABLE_WINDOW];
+static uint16_t avg_idx = 0;
+static uint16_t avg_count = 0;
+
 float ave_min = 0.0f;
 float ave_max = 0.0f;
+
 bool motion_detected = false;
 bool motion_active = false;
+
 uint32_t debounce_start_time = 0;
 volatile uint16_t motion_time = 0;
 volatile uint16_t final_motion_time = 0;
+
 volatile uint8_t flag_2sec = 0;
 volatile uint16_t send_2sec = 0;
+
 uint8_t warmup_counter = 0;
 
 struct bma400_dev bma400 = {
@@ -78,9 +87,7 @@ struct bma400_dev bma400 = {
 
 typedef enum {
     MOTION_IDLE,
-    MOTION_DEBOUNCE_START,
     MOTION_RUNNING,
-    MOTION_DEBOUNCE_STOP
 } motion_state_t;
 
 motion_state_t motion_state = MOTION_IDLE;
@@ -284,20 +291,41 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	    	if (warmup_counter < WARMUP_SAMPLES)
 	    	{
 	    	    sample_buffer[sample_index++] = sample.y;
-	    	    if (sample_index >= SAMPLE_WINDOW) sample_index = 0;
+	    	    if (sample_index >= SAMPLE_WINDOW)
+	    	    {
+	    	    	sample_index = 0;
+	    	    }
 	    	    warmup_counter++;
 	    	    return; // jeszcze nie analizujemy ruchu
 	    	}
 
 	        sample_buffer[sample_index++] = sample.y;
 	        if (sample_index >= SAMPLE_WINDOW)
-	            sample_index = 0;
+	        {
+	        	sample_index = 0;
+	        }
 
 	        float avg = calc_average(sample_buffer, SAMPLE_WINDOW);
 
+	        avg_hist[avg_idx++] = avg;
+	        if (avg_idx >= STABLE_WINDOW)
+	        {
+	        	avg_idx = 0;
+	        }
+	        if (avg_count < STABLE_WINDOW)
+	        {
+	        	avg_count++;
+	        }
+
 	        // aktualizacja min/max
-	        if (ave_min == 0.0f || avg < ave_min) ave_min = avg;
-	        if (avg > ave_max) ave_max = avg;
+	        if (avg < ave_min)
+			{
+	        	ave_min = avg;
+	        }
+	        if (avg > ave_max)
+	        {
+	        	ave_max = avg;
+	        }
 
 	        float diff = ave_max - ave_min;
 
@@ -306,41 +334,46 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	            case MOTION_IDLE:
 	                if (diff >= MOTION_THRESHOLD_START)
 	                {
-	                    motion_state = MOTION_DEBOUNCE_START;
-	                    debounce_start_time = HAL_GetTick();
+	                    motion_state = MOTION_RUNNING;
 	                    motion_time = 0;
 	                    HAL_TIM_Base_Start_IT(&htim16);
-	                }
-	                break;
-
-	            case MOTION_DEBOUNCE_START:
-	                if ((HAL_GetTick() - debounce_start_time) >= DEBOUNCE_TIME_MS)
-	                {
-	                    motion_state = MOTION_RUNNING;
-	                    ave_min = 0.0f;
-	                    ave_max = 0.0f;
+	                    avg_idx = 0;
+	                    avg_count = 0;
 	                }
 	                break;
 
 	            case MOTION_RUNNING:
-	                if (diff >= MOTION_THRESHOLD_STOP)
+	            {
+	                // okno 300 próbek średnich
+	                if (avg_count == STABLE_WINDOW)
 	                {
-	                    motion_state = MOTION_DEBOUNCE_STOP;
-	                    debounce_start_time = HAL_GetTick();
-	                    HAL_TIM_Base_Stop_IT(&htim16);
-	                    Send16BitESP(&huart1, motion_time);
-	                }
-	                break;
+	                    float wmin = avg_hist[0];
+	                    float wmax = avg_hist[0];
+	                    for (uint16_t i = 1; i < STABLE_WINDOW; i++)
+	                    {
+	                        float v = avg_hist[i];
+	                        if (v < wmin)
+	                        {
+	                        	wmin = v;
+	                        }
+	                        if (v > wmax)
+	                        {
+	                        	wmax = v;
+	                        }
+	                    }
 
-	            case MOTION_DEBOUNCE_STOP:
-	                if ((HAL_GetTick() - debounce_start_time) >= DEBOUNCE_TIME_MS)
-	                {
-	                    motion_state = MOTION_IDLE;
-	                    ave_min = 0.0f;
-	                    ave_max = 0.0f;
-	                    sample_index = 0;
+	                    if ((wmax - wmin) <= MOTION_THRESHOLD_STOP)
+	                    {
+	                        motion_state = MOTION_IDLE;
+	                        HAL_TIM_Base_Stop_IT(&htim16);
+	                        Send16BitESP(&huart1, motion_time);
+	                        ave_min = 0.0f;
+	                        ave_max = 0.0f;
+	                        sample_index = 0;
+	                    }
 	                }
-	                break;
+	            }
+	            break;
 	        }
 	    }
 	}

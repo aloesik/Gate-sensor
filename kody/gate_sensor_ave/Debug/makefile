@@ -66,8 +66,8 @@ all: main-build
 main-build: gate_sensor_ave.elf secondary-outputs
 
 # Tool invocations
-gate_sensor_ave.elf gate_sensor_ave.map: $(OBJS) $(USER_OBJS) C:\git\Gate-sensor\kody\gate_sensor_ave\STM32C011F6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "gate_sensor_ave.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor_ave\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_ave.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+gate_sensor_ave.elf gate_sensor_ave.map: $(OBJS) $(USER_OBJS) D:\git\Gate-sensor\kody\gate_sensor_ave\STM32C011F6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "gate_sensor_ave.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"D:\git\Gate-sensor\kody\gate_sensor_ave\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_ave.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
