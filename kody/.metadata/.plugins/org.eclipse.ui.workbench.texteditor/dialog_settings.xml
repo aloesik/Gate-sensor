@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
-	<item key="replaceBarOpen" value="false"/>
+	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="shutdo"/>
+		<item value="HAL_PWR_EnableWakeUpPin"/>
+		<item value="PWR_WAKEUP_PIN1"/>
+		<item value="INT1_Pin"/>
+		<item value="low_power"/>
+		<item value="odr"/>
 		<item value="fifo"/>
 		<item value="configurefifo"/>
 		<item value="led2"/>
