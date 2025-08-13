@@ -52,6 +52,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 gate_sensor_time.list \
 
+OBJCOPY_HEX += \
+gate_sensor_time.hex \
+
 
 # All Target
 all: main-build
@@ -60,8 +63,8 @@ all: main-build
 main-build: gate_sensor_time.elf secondary-outputs
 
 # Tool invocations
-gate_sensor_time.elf gate_sensor_time.map: $(OBJS) $(USER_OBJS) D:\git\Gate-sensor\kody\gate_sensor_time\STM32C011F6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "gate_sensor_time.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"D:\git\Gate-sensor\kody\gate_sensor_time\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_time.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+gate_sensor_time.elf gate_sensor_time.map: $(OBJS) $(USER_OBJS) C:\git\Gate-sensor\kody\gate_sensor_time\STM32C011F6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "gate_sensor_time.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor_time\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_time.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,12 +78,17 @@ gate_sensor_time.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS
 	@echo 'Finished building: $@'
 	@echo ' '
 
+gate_sensor_time.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "gate_sensor_time.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) default.size.stdout gate_sensor_time.elf gate_sensor_time.list gate_sensor_time.map
+	-$(RM) default.size.stdout gate_sensor_time.elf gate_sensor_time.hex gate_sensor_time.list gate_sensor_time.map
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
