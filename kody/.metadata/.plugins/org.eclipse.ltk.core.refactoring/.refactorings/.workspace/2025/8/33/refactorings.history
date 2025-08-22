@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;gate_sensor&apos;" deleteContents="true" description="Delete resource &apos;gate_sensor&apos;" element1="/gate_sensor" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1755165020569"/>&#x0A;<refactoring comment="Delete resource &apos;gate_sensor/gate_sensor_ave Debug.launch&apos;" deleteContents="false" description="Delete resource &apos;gate_sensor/gate_sensor_ave Debug.launch&apos;" element1="/gate_sensor/gate_sensor_ave Debug.launch" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1755165068887"/>
+</session>

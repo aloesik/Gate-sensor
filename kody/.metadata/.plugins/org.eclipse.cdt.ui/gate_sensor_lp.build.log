@@ -1,0 +1,23 @@
+11:41:59 **** Incremental Build of configuration Debug for project gate_sensor_lp ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O1 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gate_sensor_lp.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor_lp\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_lp.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gate_sensor_lp.elf
+ 
+arm-none-eabi-size  gate_sensor_lp.elf 
+arm-none-eabi-objdump -h -S gate_sensor_lp.elf  > "gate_sensor_lp.list"
+   text	   data	    bss	    dec	    hex	filename
+  10348	     44	   1956	  12348	   303c	gate_sensor_lp.elf
+arm-none-eabi-objcopy  -O ihex gate_sensor_lp.elf  "gate_sensor_lp.hex"
+arm-none-eabi-objcopy  -O binary gate_sensor_lp.elf  "gate_sensor_lp.bin"
+Finished building: default.size.stdout
+ 
+Finished building: gate_sensor_lp.hex
+Finished building: gate_sensor_lp.bin
+ 
+ 
+Finished building: gate_sensor_lp.list
+ 
+
+11:42:02 Build Finished. 0 errors, 0 warnings. (took 2s.462ms)
+

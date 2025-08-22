@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;gate_sensor/gate_sensor_ave.ioc&apos; to &apos;gate_sensor.ioc&apos;" description="Rename resource &apos;gate_sensor_ave.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="gate_sensor_ave.ioc" name="gate_sensor.ioc" stamp="1755165054256" updateReferences="true"/>
+</session>

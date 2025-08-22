@@ -39,7 +39,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define DIFF_STABLE_THRESHOLD 5.0f
+#define DIFF_STABLE_COUNT       30
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,9 +52,13 @@
 
 /* USER CODE BEGIN PV */
 volatile uint16_t motion_time = 0;
-volatile uint8_t flag_2sec = 0;
-volatile uint16_t send_2sec = 0;
-int16_t y_samples[32] = {0};
+volatile uint8_t send_flag = 0;
+volatile uint16_t send_time = 0;
+volatile uint8_t go_sleep = 0;
+
+static float prev_y = 0.0f;
+static bool prev_valid = false;
+static uint16_t stable_count = 0;
 
 struct bma400_dev bma400 = {
 	.intf = BMA400_I2C_INTF,
@@ -71,11 +76,37 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void enterStandby(void)
+static void debug_uart(const char *msg)
 {
+    HAL_UART_Transmit(&huart1, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+}
+
+void enterShutdown(void)
+{
+	HAL_PWREx_EnablePullUpPullDownConfig();
+	HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_A, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullDown(PWR_GPIO_A, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_B, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullDown(PWR_GPIO_B, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_C, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullDown(PWR_GPIO_C, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_F, GPIO_PIN_ALL);
+	HAL_PWREx_DisableGPIOPullDown(PWR_GPIO_F, GPIO_PIN_ALL);
+	HAL_PWREx_DisablePullUpPullDownConfig();
+
+	__HAL_RCC_GPIOB_CLK_DISABLE();
+	__HAL_RCC_GPIOC_CLK_DISABLE();
+	__HAL_RCC_GPIOF_CLK_DISABLE();
+	__HAL_RCC_USART1_CLK_DISABLE();
+
 	__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WUF);
   	HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
-    HAL_PWR_EnterSTANDBYMode();
+
+    HAL_ResumeTick();
+    HAL_Delay(5);
+    HAL_SuspendTick();
+
+    HAL_PWREx_EnterSHUTDOWNMode();
 }
 
 // Configure BMA400 for low power + wake-up on Y-axis motion
@@ -85,19 +116,19 @@ void configureBMA400(struct bma400_dev *dev)
 
 	struct bma400_device_conf dev_conf[] = {
 		{
-			.type = BMA400_AUTO_LOW_POWER,	// auto low power after movement stops (350 ms)
+			.type = BMA400_AUTO_LOW_POWER,	// auto low power after movement stops
 			.param.auto_lp = {
 				.auto_low_power_trigger = BMA400_AUTO_LP_GEN1_TRIGGER | BMA400_AUTO_LP_TIMEOUT_EN | BMA400_AUTO_LP_TIME_RESET_EN,
-				.auto_lp_timeout_threshold = 200	// 200 x 2.5 ms =  500 ms
+				.auto_lp_timeout_threshold = 100	// 200 x 2.5 ms =  500 ms
 			}
 		},
 		{
 			.type = BMA400_AUTOWAKEUP_INT,	// wake-up interrupt on motion detection on Y axis
 			.param.wakeup = {
-				.wakeup_ref_update = BMA400_UPDATE_EVERY_TIME,
+				.wakeup_ref_update = BMA400_UPDATE_ONE_TIME,
 				.sample_count = BMA400_SAMPLE_COUNT_1,
 				.wakeup_axes_en = BMA400_AXIS_Y_EN,
-				.int_wkup_threshold = 5,				// 5 mg threshold
+				.int_wkup_threshold = 20,				// 5 mg threshold
 				.int_chan = BMA400_INT_CHANNEL_1
 			}
 		},
@@ -116,8 +147,8 @@ void configureBMA400(struct bma400_dev *dev)
 		.type = BMA400_ACCEL,	// configure accelerometer
 		.param.accel = {
 			.range = BMA400_RANGE_2G,
-			.data_src = BMA400_DATA_SRC_ACCEL_FILT_2,
-			.osr = BMA400_ACCEL_OSR_SETTING_3,
+			.data_src = BMA400_DATA_SRC_ACCEL_FILT_LP,
+			.osr = BMA400_ACCEL_OSR_SETTING_0,
 			.odr = BMA400_ODR_100HZ
 		}
 	};
@@ -126,53 +157,16 @@ void configureBMA400(struct bma400_dev *dev)
 	set_auto_wakeup(BMA400_ENABLE, dev);	// enable auto wake up
 }
 
-bool detectGateMotion(const int16_t *data)
-{
-    float sigma[4] = {0};
-
-    // calculate SD from 4 blocks of 8 samples each
-    for (uint8_t block = 0; block < 4; block++)
-    {
-        float sum = 0, mean = 0, sum_diff_squared = 0;
-        const int16_t *ptr = &data[block * 8];			// pointer to start of current block
-
-        // calculate mean of the 8 samples
-        for (uint8_t i = 0; i < 8; i++)
-        {
-            sum += ptr[i];
-        }
-        mean = sum / 8.0f;
-
-        // calculate sum of squared differences from the mean
-        for (uint8_t i = 0; i < 8; i++)
-        {
-        	sum_diff_squared += powf(ptr[i] - mean, 2);
-        }
-
-        sigma[block] = sqrtf(sum_diff_squared / 8.0f); // calculate standard deviation
-    }
-
-    // count how many times the difference between adjacent sigmas exceeds threshold (5 LSB)
-    uint8_t count = 0;
-    for (uint8_t i = 0; i < 3; i++)
-    {
-        float diff = fabsf(sigma[i + 1] - sigma[i]);
-        if (diff >= 2.0f)
-            count++;
-    }
-
-    return (count >= 2); // if 3 times threshold was exceeded -> motion detected
-}
-
-void Send16BitESP(UART_HandleTypeDef *huart, uint16_t value) {
+void SendESP(UART_HandleTypeDef *huart, uint16_t value) {
 	char msg[16];
 	snprintf(msg, sizeof(msg), "%u\n", value);
 
 	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, SET);
-	HAL_Delay(300);
+	HAL_Delay(280);
 	HAL_UART_Transmit(huart, (uint8_t *)msg, strlen(msg), HAL_MAX_DELAY);
-	HAL_Delay(10);
+	HAL_Delay(2);
 	HAL_GPIO_WritePin(EN_IO_GPIO_Port, EN_IO_Pin, RESET);
+	HAL_Delay(70);
 }
 /* USER CODE END 0 */
 
@@ -184,8 +178,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
-	bool timer_started = false;
-	bool motion_detected = false;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -206,55 +199,40 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_I2C1_Init();
   MX_USART1_UART_Init();
   MX_TIM14_Init();
+  MX_TIM16_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  //__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // dbg - check power mode state
+  //HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_B, PWR_GPIO_BIT_2);
+  //HAL_PWREx_DisablePullUpPullDownConfig();
   bma400_init(&bma400);
   configureBMA400(&bma400);
+  HAL_ResumeTick();
   HAL_Delay(10);
+  HAL_SuspendTick();
+  debug_uart("woke up\n");
 
-  for (int i = 0; i < 32; i++)
-  {
-  	struct bma400_sensor_data sample;
-  	if (bma400_get_accel_data(BMA400_DATA_ONLY, &sample, &bma400) == BMA400_OK)
-  	{
-  		y_samples[31 - i] = sample.y;
-  	}
-  	HAL_Delay(10);
-  }
+  HAL_TIM_Base_Start_IT(&htim14);
+  HAL_TIM_Base_Start_IT(&htim16);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  motion_detected = detectGateMotion(y_samples);
+	  if (send_flag)
+	  {
+	      send_flag = 0;
+	      HAL_ResumeTick();
+	      SendESP(&huart1, send_time);
+	      HAL_SuspendTick();
+	  }
 
-	  if (!motion_detected)
+	  if (go_sleep)
 	  {
-		  HAL_TIM_Base_Stop_IT(&htim14);
-		  if (motion_time >= 1)	// gate stopped while movement
-		  {
-			  Send16BitESP(&huart1, motion_time);
-			  enterStandby();
-		  }
-		  else
-		  {
-			  enterStandby();
-		  }
-	  }
-	  else if (motion_detected && flag_2sec == 1)
-	  {
-		  flag_2sec = 0;
-		  Send16BitESP(&huart1, send_2sec);
-	  }
-	  else if (motion_detected && !timer_started)
-	  {
-		  motion_time = 0;
-		  HAL_TIM_Base_Start_IT(&htim14);
-		  timer_started = true;
+		  go_sleep = 0;
+		  enterShutdown();
 	  }
     /* USER CODE END WHILE */
 
@@ -279,7 +257,7 @@ void SystemClock_Config(void)
   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV4;
+  RCC_OscInitStruct.HSIDiv = RCC_HSI_DIV16;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -304,36 +282,56 @@ void SystemClock_Config(void)
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	if (htim->Instance == TIM14)
-	{
-		motion_time++;
+    if (htim->Instance == TIM16)
+    {
+        motion_time++;
 
-		// tick counter for setting flag telling about readiness to send time every 2 s
-		static uint16_t tick_counter = 0;
-		tick_counter++;
-
-		if (tick_counter >= 2000)
-		{
-			tick_counter = 0;
-			flag_2sec = 1;
-			send_2sec = motion_time;
-		}
-
-		// shift register to write Y axis sample every 10 ms
-		static uint8_t accel_tick = 0;
-		accel_tick++;
-		if (accel_tick >= 10)
-		{
-			accel_tick = 0;
-
-			memmove(&y_samples[1], &y_samples[0], sizeof(int16_t) * 31);
-			struct bma400_sensor_data sample;
-			if (bma400_get_accel_data(BMA400_DATA_ONLY, &sample, &bma400) == BMA400_OK)
-			{
-				y_samples[0] = sample.y;
-			}
-		}
+        static uint16_t tick_counter = 0;
+        tick_counter++;
+        if (tick_counter >= 2000)
+        {
+            tick_counter = 0;
+            send_flag = 1;
+            send_time = motion_time;
+        }
 	}
+
+    if (htim->Instance == TIM14)
+    {
+        struct bma400_sensor_data sample;
+        if (bma400_get_accel_data(BMA400_DATA_ONLY, &sample, &bma400) == BMA400_OK)
+        {
+            if (prev_valid)
+            {
+                float diff = fabsf(sample.y - prev_y);
+
+                if (diff <= DIFF_STABLE_THRESHOLD && stable_count < DIFF_STABLE_COUNT)
+                {
+                    stable_count++;
+                }
+                else
+                {
+                    stable_count = 0;
+                }
+
+                if (stable_count >= DIFF_STABLE_COUNT)
+                {
+                    HAL_TIM_Base_Stop_IT(&htim14);
+                    HAL_TIM_Base_Stop_IT(&htim16);
+
+                    send_time = motion_time;
+                    send_flag = 1;
+
+                    stable_count = 0;
+                    prev_valid = false;
+                    go_sleep = 1;
+                }
+            }
+
+            prev_y = sample.y;
+            prev_valid = true;
+        }
+    }
 }
 /* USER CODE END 4 */
 

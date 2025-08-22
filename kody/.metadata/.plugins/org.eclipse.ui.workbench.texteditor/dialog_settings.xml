@@ -3,9 +3,13 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="shutdow"/>
+		<item value="entersh"/>
+		<item value="PWR_WAKEUP_PIN1"/>
+		<item value="latch"/>
+		<item value="sample.y"/>
 		<item value="shutdo"/>
 		<item value="HAL_PWR_EnableWakeUpPin"/>
-		<item value="PWR_WAKEUP_PIN1"/>
 		<item value="INT1_Pin"/>
 		<item value="low_power"/>
 		<item value="odr"/>
@@ -14,7 +18,5 @@
 		<item value="led2"/>
 		<item value="HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, SET);"/>
 		<item value="fifo_read"/>
-		<item value="set_fifo_conf"/>
-		<item value="REG_FIFO_LENGTH"/>
 	</list>
 </section>

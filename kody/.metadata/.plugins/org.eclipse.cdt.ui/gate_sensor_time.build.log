@@ -1,20 +1,10 @@
-16:44:33 **** Incremental Build of configuration Debug for project gate_sensor_time ****
+16:05:11 **** Incremental Build of configuration Debug for project gate_sensor_time ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32C011xx -c -I../Core/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc -I../Drivers/STM32C0xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32C0xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "gate_sensor_time.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\git\Gate-sensor\kody\gate_sensor_time\STM32C011F6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gate_sensor_time.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: gate_sensor_time.elf
- 
 arm-none-eabi-size  gate_sensor_time.elf 
-arm-none-eabi-objdump -h -S gate_sensor_time.elf  > "gate_sensor_time.list"
-arm-none-eabi-objcopy  -O ihex gate_sensor_time.elf  "gate_sensor_time.hex"
    text	   data	    bss	    dec	    hex	filename
   24972	     92	   2244	  27308	   6aac	gate_sensor_time.elf
 Finished building: default.size.stdout
  
-Finished building: gate_sensor_time.hex
- 
-Finished building: gate_sensor_time.list
- 
 
-16:44:35 Build Finished. 0 errors, 0 warnings. (took 2s.226ms)
+16:05:12 Build Finished. 0 errors, 0 warnings. (took 618ms)
 
